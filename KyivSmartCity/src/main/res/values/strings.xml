@@ -13,5 +13,7 @@
     <string name="preferences">Preferences</string>
     <string name="location_services_disabled">Отключены сервисы поиска локации. Включите их, пожалуйста.</string>
     <string name="enable_location_service">Включить сервисы локации.</string>
+    <string name="please_choose_your_location">Пожалуйста, укажите свое местоположение.</string>
+    <string name="submit_location">Подвердить местоположение.</string>
 
 </resources>

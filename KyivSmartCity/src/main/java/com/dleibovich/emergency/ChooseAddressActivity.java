@@ -11,11 +11,14 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import com.dleibovich.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class ChooseAddressActivity extends Activity {
 
@@ -23,17 +26,38 @@ public class ChooseAddressActivity extends Activity {
     private LocationListener mLocationListener;
     private LocationManager mLocationManager;
 
+    private LatLng mLastPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_activity);
 
+        final Button submitLocation = (Button) findViewById(R.id.submit_location);
+        submitLocation.setEnabled(false);
+        submitLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         mMap = ((MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map)).getMap();
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                mMap.clear();
+                mMap.addMarker(new MarkerOptions()
+                                .position(latLng)
+                );
+                mLastPosition = latLng;
+                submitLocation.setEnabled(true);
+            }
+        });
 
         mLocationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         mLocationListener = new LocationListener() {
-
             @Override
             public void onLocationChanged(Location location) {
                 Log.d("Location", "Location found");
@@ -66,6 +90,7 @@ public class ChooseAddressActivity extends Activity {
                         }).show();
             }
         };
+
     }
 
     @Override
