@@ -10,5 +10,8 @@
     <string name="your_phone">Ваш номер телефона.</string>
     <string name="save_data">Сохранить</string>
     <string name="call_emergency">Вызвать скорую</string>
+    <string name="preferences">Preferences</string>
+    <string name="location_services_disabled">Отключены сервисы поиска локации. Включите их, пожалуйста.</string>
+    <string name="enable_location_service">Включить сервисы локации.</string>
 
 </resources>

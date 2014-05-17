@@ -22,7 +22,7 @@ public class AppPreferences {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(KEY_USER_NAME, userName);
         editor.putString(KEY_USER_PHONE, userPhone);
-        editor.putBoolean(KEY_USER_PHONE, true);
+        editor.putBoolean(KEY_FILLED_PREFERENCES, true);
         editor.commit();
     }
 
