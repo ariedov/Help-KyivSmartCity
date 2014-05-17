@@ -10,5 +10,5 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface HLPPosition : NSObject <CLLocationManagerDelegate>
-@
+
 @end

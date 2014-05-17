@@ -12,18 +12,18 @@
 
 static HLPPosition *hLPPosition = nil;
 
-+ (id)sharedManager {
-    static MyManager *sharedMyManager = nil;
++ (id)sharedHLPPositionManager {
+    static HLPPosition *sharedHLPPosition = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
+        sharedHLPPosition = [[self alloc] init];
     });
-    return sharedMyManager;
+    return sharedHLPPosition;
 }
 
 - (id)init {
     if (self = [super init]) {
-        someProperty = [[NSString alloc] initWithString:@"Default Property Value"];
+
     }
     return self;
 }
